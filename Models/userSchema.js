@@ -31,6 +31,14 @@ const userSchema = new mongoose.Schema({
         type:String
     }
 })
-const users = mongoose.model("users",userSchema)
 
+async function run() {
+    await mongoose.connect(process.env.DATABASE);
+      mongoose.model("users",userSchema)
+    await mongoose.model('users').findOne(); // Works!
+    return mongoose.model("users",userSchema)
+  }
+
+//  mongoose.model("users",userSchema)
+const users = run()
 module.exports = users

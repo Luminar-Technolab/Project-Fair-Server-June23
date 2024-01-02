@@ -34,9 +34,8 @@ const userSchema = new mongoose.Schema({
 
 async function run() {
     await mongoose.connect(process.env.DATABASE);
-    return mongoose.model("users",userSchema)
   }
-
+run()
 //  mongoose.model("users",userSchema)
-const users = run()
+const users = mongoose.model("users",userSchema)
 module.exports = users

@@ -34,8 +34,6 @@ const userSchema = new mongoose.Schema({
 
 async function run() {
     await mongoose.connect(process.env.DATABASE);
-      mongoose.model("users",userSchema)
-    await mongoose.model('users').findOne(); // Works!
     return mongoose.model("users",userSchema)
   }
 
